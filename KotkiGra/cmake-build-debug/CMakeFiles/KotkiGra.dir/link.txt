@@ -1,0 +1,3 @@
+"C:\Program Files\JetBrains\CLion 2021.2\bin\cmake\win\bin\cmake.exe" -E rm -f CMakeFiles\KotkiGra.dir/objects.a
+C:\winlibs-x86_64-posix-seh-gcc-11.1.0-llvm-12.0.0-mingw-w64-8.0.2-r1\mingw64\bin\ar.exe cr CMakeFiles\KotkiGra.dir/objects.a @CMakeFiles\KotkiGra.dir\objects1.rsp
+C:\winlibs-x86_64-posix-seh-gcc-11.1.0-llvm-12.0.0-mingw-w64-8.0.2-r1\mingw64\bin\g++.exe -g -Wl,--whole-archive CMakeFiles\KotkiGra.dir/objects.a -Wl,--no-whole-archive -o KotkiGra.exe -Wl,--out-implib,libKotkiGra.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\KotkiGra.dir\linklibs.rsp
