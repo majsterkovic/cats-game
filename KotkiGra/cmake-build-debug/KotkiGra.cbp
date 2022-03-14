@@ -5,21 +5,21 @@
 		<Option title="KotkiGra"/>
 		<Option makefile_is_custom="1"/>
 		<Option compiler="gcc"/>
-		<Option virtualFolders="CMake Files\;CMake Files\..\;CMake Files\..\..\;CMake Files\..\..\..\;CMake Files\..\..\..\..\;CMake Files\..\..\..\..\SFML\;CMake Files\..\..\..\..\SFML\lib\;CMake Files\..\..\..\..\SFML\lib\cmake\;CMake Files\..\..\..\..\SFML\lib\cmake\SFML\;"/>
+		<Option virtualFolders="CMake Files\;CMake Files\..\;CMake Files\..\..\;CMake Files\..\..\..\;CMake Files\..\..\..\..\;CMake Files\..\..\..\..\..\;CMake Files\..\..\..\..\..\SFML\;CMake Files\..\..\..\..\..\SFML\lib\;CMake Files\..\..\..\..\..\SFML\lib\cmake\;CMake Files\..\..\..\..\..\SFML\lib\cmake\SFML\;"/>
 		<Build>
 			<Target title="all">
-				<Option working_dir="C:/Users/Mariusz/Desktop/KotkiGra/cmake-build-debug"/>
+				<Option working_dir="C:/Users/Mariusz/Desktop/cats-game/KotkiGra/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="C:/winlibs-x86_64-posix-seh-gcc-11.1.0-llvm-12.0.0-mingw-w64-8.0.2-r1/mingw64/bin/mingw32-make.exe -f &quot;C:/Users/Mariusz/Desktop/KotkiGra/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
-					<CompileFile command="C:/winlibs-x86_64-posix-seh-gcc-11.1.0-llvm-12.0.0-mingw-w64-8.0.2-r1/mingw64/bin/mingw32-make.exe -f &quot;C:/Users/Mariusz/Desktop/KotkiGra/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="C:/winlibs-x86_64-posix-seh-gcc-11.1.0-llvm-12.0.0-mingw-w64-8.0.2-r1/mingw64/bin/mingw32-make.exe -f &quot;C:/Users/Mariusz/Desktop/KotkiGra/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="C:/winlibs-x86_64-posix-seh-gcc-11.1.0-llvm-12.0.0-mingw-w64-8.0.2-r1/mingw64/bin/mingw32-make.exe -f &quot;C:/Users/Mariusz/Desktop/KotkiGra/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="C:/winlibs-x86_64-posix-seh-gcc-11.1.0-llvm-12.0.0-mingw-w64-8.0.2-r1/mingw64/bin/mingw32-make.exe -f &quot;C:/Users/Mariusz/Desktop/cats-game/KotkiGra/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="C:/winlibs-x86_64-posix-seh-gcc-11.1.0-llvm-12.0.0-mingw-w64-8.0.2-r1/mingw64/bin/mingw32-make.exe -f &quot;C:/Users/Mariusz/Desktop/cats-game/KotkiGra/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/winlibs-x86_64-posix-seh-gcc-11.1.0-llvm-12.0.0-mingw-w64-8.0.2-r1/mingw64/bin/mingw32-make.exe -f &quot;C:/Users/Mariusz/Desktop/cats-game/KotkiGra/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/winlibs-x86_64-posix-seh-gcc-11.1.0-llvm-12.0.0-mingw-w64-8.0.2-r1/mingw64/bin/mingw32-make.exe -f &quot;C:/Users/Mariusz/Desktop/cats-game/KotkiGra/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="KotkiGra">
-				<Option output="C:/Users/Mariusz/Desktop/KotkiGra/cmake-build-debug/KotkiGra.exe" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="C:/Users/Mariusz/Desktop/KotkiGra/cmake-build-debug"/>
+				<Option output="C:/Users/Mariusz/Desktop/cats-game/KotkiGra/cmake-build-debug/KotkiGra.exe" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="C:/Users/Mariusz/Desktop/cats-game/KotkiGra/cmake-build-debug"/>
 				<Option object_output="./"/>
 				<Option type="1"/>
 				<Option compiler="gcc"/>
@@ -35,15 +35,15 @@
 					<Add directory="c:\winlibs-x86_64-posix-seh-gcc-11.1.0-llvm-12.0.0-mingw-w64-8.0.2-r1\mingw64\bin\../lib/gcc/x86_64-w64-mingw32/11.1.0/../../../../x86_64-w64-mingw32/include"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="C:/winlibs-x86_64-posix-seh-gcc-11.1.0-llvm-12.0.0-mingw-w64-8.0.2-r1/mingw64/bin/mingw32-make.exe -f &quot;C:/Users/Mariusz/Desktop/KotkiGra/cmake-build-debug/Makefile&quot;  VERBOSE=1 KotkiGra"/>
-					<CompileFile command="C:/winlibs-x86_64-posix-seh-gcc-11.1.0-llvm-12.0.0-mingw-w64-8.0.2-r1/mingw64/bin/mingw32-make.exe -f &quot;C:/Users/Mariusz/Desktop/KotkiGra/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="C:/winlibs-x86_64-posix-seh-gcc-11.1.0-llvm-12.0.0-mingw-w64-8.0.2-r1/mingw64/bin/mingw32-make.exe -f &quot;C:/Users/Mariusz/Desktop/KotkiGra/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="C:/winlibs-x86_64-posix-seh-gcc-11.1.0-llvm-12.0.0-mingw-w64-8.0.2-r1/mingw64/bin/mingw32-make.exe -f &quot;C:/Users/Mariusz/Desktop/KotkiGra/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="C:/winlibs-x86_64-posix-seh-gcc-11.1.0-llvm-12.0.0-mingw-w64-8.0.2-r1/mingw64/bin/mingw32-make.exe -f &quot;C:/Users/Mariusz/Desktop/cats-game/KotkiGra/cmake-build-debug/Makefile&quot;  VERBOSE=1 KotkiGra"/>
+					<CompileFile command="C:/winlibs-x86_64-posix-seh-gcc-11.1.0-llvm-12.0.0-mingw-w64-8.0.2-r1/mingw64/bin/mingw32-make.exe -f &quot;C:/Users/Mariusz/Desktop/cats-game/KotkiGra/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/winlibs-x86_64-posix-seh-gcc-11.1.0-llvm-12.0.0-mingw-w64-8.0.2-r1/mingw64/bin/mingw32-make.exe -f &quot;C:/Users/Mariusz/Desktop/cats-game/KotkiGra/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/winlibs-x86_64-posix-seh-gcc-11.1.0-llvm-12.0.0-mingw-w64-8.0.2-r1/mingw64/bin/mingw32-make.exe -f &quot;C:/Users/Mariusz/Desktop/cats-game/KotkiGra/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="KotkiGra/fast">
-				<Option output="C:/Users/Mariusz/Desktop/KotkiGra/cmake-build-debug/KotkiGra.exe" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="C:/Users/Mariusz/Desktop/KotkiGra/cmake-build-debug"/>
+				<Option output="C:/Users/Mariusz/Desktop/cats-game/KotkiGra/cmake-build-debug/KotkiGra.exe" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="C:/Users/Mariusz/Desktop/cats-game/KotkiGra/cmake-build-debug"/>
 				<Option object_output="./"/>
 				<Option type="1"/>
 				<Option compiler="gcc"/>
@@ -59,56 +59,56 @@
 					<Add directory="c:\winlibs-x86_64-posix-seh-gcc-11.1.0-llvm-12.0.0-mingw-w64-8.0.2-r1\mingw64\bin\../lib/gcc/x86_64-w64-mingw32/11.1.0/../../../../x86_64-w64-mingw32/include"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="C:/winlibs-x86_64-posix-seh-gcc-11.1.0-llvm-12.0.0-mingw-w64-8.0.2-r1/mingw64/bin/mingw32-make.exe -f &quot;C:/Users/Mariusz/Desktop/KotkiGra/cmake-build-debug/Makefile&quot;  VERBOSE=1 KotkiGra/fast"/>
-					<CompileFile command="C:/winlibs-x86_64-posix-seh-gcc-11.1.0-llvm-12.0.0-mingw-w64-8.0.2-r1/mingw64/bin/mingw32-make.exe -f &quot;C:/Users/Mariusz/Desktop/KotkiGra/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="C:/winlibs-x86_64-posix-seh-gcc-11.1.0-llvm-12.0.0-mingw-w64-8.0.2-r1/mingw64/bin/mingw32-make.exe -f &quot;C:/Users/Mariusz/Desktop/KotkiGra/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="C:/winlibs-x86_64-posix-seh-gcc-11.1.0-llvm-12.0.0-mingw-w64-8.0.2-r1/mingw64/bin/mingw32-make.exe -f &quot;C:/Users/Mariusz/Desktop/KotkiGra/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="C:/winlibs-x86_64-posix-seh-gcc-11.1.0-llvm-12.0.0-mingw-w64-8.0.2-r1/mingw64/bin/mingw32-make.exe -f &quot;C:/Users/Mariusz/Desktop/cats-game/KotkiGra/cmake-build-debug/Makefile&quot;  VERBOSE=1 KotkiGra/fast"/>
+					<CompileFile command="C:/winlibs-x86_64-posix-seh-gcc-11.1.0-llvm-12.0.0-mingw-w64-8.0.2-r1/mingw64/bin/mingw32-make.exe -f &quot;C:/Users/Mariusz/Desktop/cats-game/KotkiGra/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/winlibs-x86_64-posix-seh-gcc-11.1.0-llvm-12.0.0-mingw-w64-8.0.2-r1/mingw64/bin/mingw32-make.exe -f &quot;C:/Users/Mariusz/Desktop/cats-game/KotkiGra/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/winlibs-x86_64-posix-seh-gcc-11.1.0-llvm-12.0.0-mingw-w64-8.0.2-r1/mingw64/bin/mingw32-make.exe -f &quot;C:/Users/Mariusz/Desktop/cats-game/KotkiGra/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="edit_cache">
-				<Option working_dir="C:/Users/Mariusz/Desktop/KotkiGra/cmake-build-debug"/>
+				<Option working_dir="C:/Users/Mariusz/Desktop/cats-game/KotkiGra/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="C:/winlibs-x86_64-posix-seh-gcc-11.1.0-llvm-12.0.0-mingw-w64-8.0.2-r1/mingw64/bin/mingw32-make.exe -f &quot;C:/Users/Mariusz/Desktop/KotkiGra/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
-					<CompileFile command="C:/winlibs-x86_64-posix-seh-gcc-11.1.0-llvm-12.0.0-mingw-w64-8.0.2-r1/mingw64/bin/mingw32-make.exe -f &quot;C:/Users/Mariusz/Desktop/KotkiGra/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="C:/winlibs-x86_64-posix-seh-gcc-11.1.0-llvm-12.0.0-mingw-w64-8.0.2-r1/mingw64/bin/mingw32-make.exe -f &quot;C:/Users/Mariusz/Desktop/KotkiGra/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="C:/winlibs-x86_64-posix-seh-gcc-11.1.0-llvm-12.0.0-mingw-w64-8.0.2-r1/mingw64/bin/mingw32-make.exe -f &quot;C:/Users/Mariusz/Desktop/KotkiGra/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="C:/winlibs-x86_64-posix-seh-gcc-11.1.0-llvm-12.0.0-mingw-w64-8.0.2-r1/mingw64/bin/mingw32-make.exe -f &quot;C:/Users/Mariusz/Desktop/cats-game/KotkiGra/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="C:/winlibs-x86_64-posix-seh-gcc-11.1.0-llvm-12.0.0-mingw-w64-8.0.2-r1/mingw64/bin/mingw32-make.exe -f &quot;C:/Users/Mariusz/Desktop/cats-game/KotkiGra/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/winlibs-x86_64-posix-seh-gcc-11.1.0-llvm-12.0.0-mingw-w64-8.0.2-r1/mingw64/bin/mingw32-make.exe -f &quot;C:/Users/Mariusz/Desktop/cats-game/KotkiGra/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/winlibs-x86_64-posix-seh-gcc-11.1.0-llvm-12.0.0-mingw-w64-8.0.2-r1/mingw64/bin/mingw32-make.exe -f &quot;C:/Users/Mariusz/Desktop/cats-game/KotkiGra/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="rebuild_cache">
-				<Option working_dir="C:/Users/Mariusz/Desktop/KotkiGra/cmake-build-debug"/>
+				<Option working_dir="C:/Users/Mariusz/Desktop/cats-game/KotkiGra/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="C:/winlibs-x86_64-posix-seh-gcc-11.1.0-llvm-12.0.0-mingw-w64-8.0.2-r1/mingw64/bin/mingw32-make.exe -f &quot;C:/Users/Mariusz/Desktop/KotkiGra/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
-					<CompileFile command="C:/winlibs-x86_64-posix-seh-gcc-11.1.0-llvm-12.0.0-mingw-w64-8.0.2-r1/mingw64/bin/mingw32-make.exe -f &quot;C:/Users/Mariusz/Desktop/KotkiGra/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="C:/winlibs-x86_64-posix-seh-gcc-11.1.0-llvm-12.0.0-mingw-w64-8.0.2-r1/mingw64/bin/mingw32-make.exe -f &quot;C:/Users/Mariusz/Desktop/KotkiGra/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="C:/winlibs-x86_64-posix-seh-gcc-11.1.0-llvm-12.0.0-mingw-w64-8.0.2-r1/mingw64/bin/mingw32-make.exe -f &quot;C:/Users/Mariusz/Desktop/KotkiGra/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="C:/winlibs-x86_64-posix-seh-gcc-11.1.0-llvm-12.0.0-mingw-w64-8.0.2-r1/mingw64/bin/mingw32-make.exe -f &quot;C:/Users/Mariusz/Desktop/cats-game/KotkiGra/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="C:/winlibs-x86_64-posix-seh-gcc-11.1.0-llvm-12.0.0-mingw-w64-8.0.2-r1/mingw64/bin/mingw32-make.exe -f &quot;C:/Users/Mariusz/Desktop/cats-game/KotkiGra/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/winlibs-x86_64-posix-seh-gcc-11.1.0-llvm-12.0.0-mingw-w64-8.0.2-r1/mingw64/bin/mingw32-make.exe -f &quot;C:/Users/Mariusz/Desktop/cats-game/KotkiGra/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/winlibs-x86_64-posix-seh-gcc-11.1.0-llvm-12.0.0-mingw-w64-8.0.2-r1/mingw64/bin/mingw32-make.exe -f &quot;C:/Users/Mariusz/Desktop/cats-game/KotkiGra/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 		</Build>
-		<Unit filename="C:/Users/Mariusz/Desktop/KotkiGra/main.cpp">
+		<Unit filename="C:/Users/Mariusz/Desktop/cats-game/KotkiGra/main.cpp">
 			<Option target="KotkiGra"/>
 		</Unit>
-		<Unit filename="C:/Users/Mariusz/Desktop/KotkiGra/CMakeLists.txt">
+		<Unit filename="C:/Users/Mariusz/Desktop/cats-game/KotkiGra/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\"/>
 		</Unit>
-		<Unit filename="C:/Users/Mariusz/Desktop/KotkiGra/../../../../SFML/lib/cmake/SFML/SFMLConfig.cmake">
-			<Option virtualFolder="CMake Files\..\..\..\..\SFML\lib\cmake\SFML\"/>
+		<Unit filename="C:/Users/Mariusz/Desktop/cats-game/KotkiGra/../../../../../SFML/lib/cmake/SFML/SFMLConfig.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\SFML\lib\cmake\SFML\"/>
 		</Unit>
-		<Unit filename="C:/Users/Mariusz/Desktop/KotkiGra/../../../../SFML/lib/cmake/SFML/SFMLConfigDependencies.cmake">
-			<Option virtualFolder="CMake Files\..\..\..\..\SFML\lib\cmake\SFML\"/>
+		<Unit filename="C:/Users/Mariusz/Desktop/cats-game/KotkiGra/../../../../../SFML/lib/cmake/SFML/SFMLConfigDependencies.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\SFML\lib\cmake\SFML\"/>
 		</Unit>
-		<Unit filename="C:/Users/Mariusz/Desktop/KotkiGra/../../../../SFML/lib/cmake/SFML/SFMLConfigVersion.cmake">
-			<Option virtualFolder="CMake Files\..\..\..\..\SFML\lib\cmake\SFML\"/>
+		<Unit filename="C:/Users/Mariusz/Desktop/cats-game/KotkiGra/../../../../../SFML/lib/cmake/SFML/SFMLConfigVersion.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\SFML\lib\cmake\SFML\"/>
 		</Unit>
-		<Unit filename="C:/Users/Mariusz/Desktop/KotkiGra/../../../../SFML/lib/cmake/SFML/SFMLStaticTargets-debug.cmake">
-			<Option virtualFolder="CMake Files\..\..\..\..\SFML\lib\cmake\SFML\"/>
+		<Unit filename="C:/Users/Mariusz/Desktop/cats-game/KotkiGra/../../../../../SFML/lib/cmake/SFML/SFMLStaticTargets-debug.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\SFML\lib\cmake\SFML\"/>
 		</Unit>
-		<Unit filename="C:/Users/Mariusz/Desktop/KotkiGra/../../../../SFML/lib/cmake/SFML/SFMLStaticTargets-release.cmake">
-			<Option virtualFolder="CMake Files\..\..\..\..\SFML\lib\cmake\SFML\"/>
+		<Unit filename="C:/Users/Mariusz/Desktop/cats-game/KotkiGra/../../../../../SFML/lib/cmake/SFML/SFMLStaticTargets-release.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\SFML\lib\cmake\SFML\"/>
 		</Unit>
-		<Unit filename="C:/Users/Mariusz/Desktop/KotkiGra/../../../../SFML/lib/cmake/SFML/SFMLStaticTargets.cmake">
-			<Option virtualFolder="CMake Files\..\..\..\..\SFML\lib\cmake\SFML\"/>
+		<Unit filename="C:/Users/Mariusz/Desktop/cats-game/KotkiGra/../../../../../SFML/lib/cmake/SFML/SFMLStaticTargets.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\SFML\lib\cmake\SFML\"/>
 		</Unit>
 	</Project>
 </CodeBlocks_project_file>

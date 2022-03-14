@@ -850,7 +850,7 @@ SFML/Config.hpp
 
 C:/SFML/include/SFML/Window/WindowStyle.hpp
 
-C:/Users/Mariusz/Desktop/KotkiGra/main.cpp
+C:/Users/Mariusz/Desktop/cats-game/KotkiGra/main.cpp
 iostream
 -
 SFML/Window.hpp
@@ -866,5 +866,11 @@ vector
 algorithm
 -
 list
+-
+thread
+-
+sstream
+-
+chrono
 -
 
