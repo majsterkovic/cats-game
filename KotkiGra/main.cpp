@@ -1,184 +1,200 @@
-#include <iostream>
-#include <SFML/Window.hpp>
-#include <SFML/Graphics.hpp>
-#include <SFML/Audio.hpp>
+#include "uti.h"
+#include "Cat.h"
 
-#include <random>
-#include <vector>
-#include <algorithm>
-#include <list>
-#include <thread>
-#include <sstream>
-#include <chrono>
+#include <fstream>
 
-#define S 6
-#define CATS 24
+sf::String playerInput;
 
-#define IMG_SIZE 128
-
-#define WINDOW_WIDTH 768
-#define WINDOW_HEIGHT (512 + 64)
-
-bool SOUND = true;
-
-std::pair <int, int> i_to_xy(int i)
+bool on_element(sf::Vector2i mouse_position, sf::FloatRect bounds)
 {
-    int y = i / S;
-    int x = i % S;
-    return std::make_pair(x, y);
-}
-
-int xy_to_i(int x, int y)
-{
-    return y * S + x;
-}
-
-class Cat
-{
-
-private:
-    sf::Texture texture;
-    sf::Texture texture_empty;
-    sf::RectangleShape rect = sf::RectangleShape(sf::Vector2f(IMG_SIZE, IMG_SIZE));
-    int time_clicked = 0;
-    sf::SoundBuffer buffer;
-    sf::Sound sound;
-
-public:
-    int number;
-    int image_number;
-    int x, y;
-    bool uncovered = false;
-    std::string egg;
-
-    Cat(int i, int j)
+    if( (float)mouse_position.x > bounds.left && (float)mouse_position.x < bounds.left + bounds.width &&
+        (float)mouse_position.y > bounds.top  && (float)mouse_position.y < bounds.top  + bounds.height)
     {
-        number = i;
-        image_number = j;
-        x = i_to_xy(i).first;
-        y = i_to_xy(i).second;
-        Cat::set_texture();
-        Cat::set_sprite();
-        Cat::set_sound();
+        return true;
     }
-
-    void set_texture()
-    {
-        texture.loadFromFile("cats/" + egg + std::to_string(image_number)+ ".png");
-        texture.setSmooth(true);
-        texture_empty.setSmooth(true);
-        texture_empty.loadFromFile("cats/e.png");
-    }
-
-    void set_sprite()
-    {
-        rect.setSize(sf::Vector2f(IMG_SIZE, IMG_SIZE));
-        rect.setTexture(&texture_empty);
-        rect.setPosition((float)x*IMG_SIZE, (float)y*IMG_SIZE);
-        //rect.setOutlineThickness(3);
-        rect.setOutlineColor(sf::Color::Black);
-    }
-
-    void set_sound()
-    {
-        if (!buffer.loadFromFile("meow.wav"))
-        {
-            std::cout << "Error loading sound file" << std::endl;
-        }
-        else
-        {
-            sound.setBuffer(buffer);
-        }
-    }
-
-    void draw(sf::RenderWindow* window)
-    {
-        window->draw(rect);
-    }
-
-    void show()
-    {
-        rect.setTexture(&texture, true);
-        if(SOUND)
-        {
-            sound.play();
-        }
-        sound.play();
-    }
-
-    void hide()
-    {
-        rect.setTexture(&texture_empty, true);
-    }
-
-    void click(int time)
-    {
-        time_clicked = time;
-        Cat::show();
-    }
-
-    bool unclick(int time, bool cnd = false)
-    {
-        if( (time - time_clicked > 1000) || cnd)
-        {
-            Cat::hide();
-            time_clicked = 0;
-            return true;
-        }
-        return false;
-    }
-
-
-
-};
-
-std::vector<int> get_random_sequence_with_double_occurences(int size)
-{
-    std::vector<int> v;
-    std::vector<int> v2;
-    for(int i = 0; i < size; i++)
-    {
-        v.push_back(i);
-        v2.push_back(i);
-    }
-    v.insert(v.end(), v2.begin(), v2.end());
-    std::shuffle(v.begin(), v.end(), std::mt19937(std::random_device()()));
-    return v;
+    return false;
 }
 
 void setup_window(sf::RenderWindow* window)
 {
     window->create(sf::VideoMode(WINDOW_WIDTH, WINDOW_HEIGHT), "Gra w Kotki", sf::Style::Close | sf::Style::Titlebar);
-    window->setFramerateLimit(60);
+    window->setFramerateLimit(30);
     sf::Image image;
     image.loadFromFile( "laughing.png" );
     window->setIcon( image.getSize().x, image.getSize().y, image.getPixelsPtr() );
 }
 
-void display_score(sf::RenderWindow* window, int time)
+void highscores(sf::RenderWindow* window, std::string &player_time)
 {
-    sf::Font font1;
+    sf::Font font, font1;
+    sf::Text text[10];
+    int fontsize = 38;
+    std::vector<sf::FloatRect> bounds;
+    std::vector<std::string> names;
+    std::vector<int> times;
+
+    font.loadFromFile("Meows-VGWjy.ttf");
+    font1.loadFromFile("MeowsNepilRegular-Yzvwa.ttf");
+
+    std::fstream scores;
+    scores.open("scores.txt", std::ios::in | std::ios::out);
+    std::string str;
+    while (std::getline(scores, str))
+    {
+        if(!str.empty())
+        {
+            std::string name = str.substr(0, str.find(';'));
+            std::string time = str.substr(str.find(';') + 1);
+            names.push_back(name);
+            times.push_back(std::stoi(time));
+        }
+    }
+    scores.close();
+
+    int j = 0;
+    while(times[j] < std::stoi(player_time))
+    {
+        j++;
+    }
+    if(j < 10)
+    {
+        names.insert(names.begin() + j, playerInput);
+        times.insert(times.begin() + j, std::stoi(player_time));
+    }
+
+    scores.open("scores.txt", std::ios::out | std::ios::trunc);
+    for(int i = 0; i < names.size(); i++)
+    {
+        scores << names[i] << ";" << times[i] << std::endl;
+    }
+    scores.close();
+
+    for(int i = 0; i < 10; i++)
+    {
+        text[i].setFont(font);
+        if(i < 3)
+        {
+            text[i].setStyle(sf::Text::Bold);
+        }
+        text[i].setCharacterSize(fontsize);
+        text[i].setFillColor(sf::Color::White);
+        text[i].setPosition(sf::Vector2f(WINDOW_WIDTH / 2.0f, (float)(i + 1) * 48.0f + 40.0f));
+        text[i].setString(std::to_string(i+1) + ". " + names[i] + " > " + std::to_string(times[i]) + "s");
+        bounds.push_back(text[i].getLocalBounds());
+
+        text[i].setOrigin(bounds[i].left + bounds[i].width/2.0f,
+                          bounds[i].top  + bounds[i].height/2.0f);
+    }
+    sf::Text header;
+    header.setFont(font1);
+    header.setStyle(sf::Text::Underlined);
+    header.setCharacterSize(fontsize + 2);
+    header.setFillColor(sf::Color::White);
+    header.setPosition(sf::Vector2f(WINDOW_WIDTH / 2.0f, 25.0f));
+    header.setString("NAJLEPSZE WYNIKI");
+    header.setOrigin(header.getLocalBounds().left + header.getLocalBounds().width/2.0f,
+                     header.getLocalBounds().top  + header.getLocalBounds().height/2.0f);
+
+    while (window->isOpen())
+    {
+        window->clear(sf::Color::Black);
+
+        for(const auto& t : text)
+        {
+            window->draw(t);
+        }
+        window->draw(header);
+
+        window->display();
+        sf::Event event{};
+        while (window->pollEvent(event))
+        {
+            if (event.type == sf::Event::Closed)
+            {
+                window->close();
+            }
+        }
+    }
+}
+
+void display_score(sf::RenderWindow* window, int time, std::vector<Cat*>cats)
+{
     sf::Font font2;
-    if (!font2.loadFromFile("Meows-VGWjy.ttf"))
-    {
-        std::cout << "Error loading font" << std::endl;
-    }
-    if (!font1.loadFromFile("MeowsNepilRegular-Yzvwa.ttf"))
-    {
-        std::cout << "Error loading font" << std::endl;
-    }
+
+    font2.loadFromFile("Meows-VGWjy.ttf");
+
     sf::Text text;
     text.setFont(font2);
 
+    int uncovered_cats = 0;
+    for(int i = 0; i < cats.size(); i++)
+    {
+        if(cats[i]->uncovered)
+        {
+            uncovered_cats++;
+        }
+    }
+
     std::ostringstream time_to_display;
     time_to_display.precision(2);
-    time_to_display << std::fixed <<  (time / 1000.0f);
+
+    static bool win = false;
+    static int t;
+
+    if(!win)
+    {
+        t = time;
+    }
+
+    if(uncovered_cats == cats.size())
+    {
+        win = true;
+    }
+
+    time_to_display << std::fixed <<  ((float)t / 1000.0f);
     std::string time_string = time_to_display.str();
-    text.setString("Czas: " + time_string + "s");
+    if(win)
+    {
+        text.setString("Wygrana! Czas: " + time_string + "s");
+    }
+    else
+    {
+        text.setString("Czas: " + time_string + "s");
+    }
     text.setCharacterSize(48);
     text.setFillColor(sf::Color::White);
     text.setPosition(sf::Vector2f(4, WINDOW_HEIGHT - 56));
     window->draw(text);
+
+    sf::Text text2;
+    text2.setFont(font2);
+    text2.setString("HIGHSCORES");
+    text2.setCharacterSize(48);
+    sf::FloatRect bounds = text2.getGlobalBounds();
+    text2.setFillColor(sf::Color::White);
+    text2.setPosition(sf::Vector2f(WINDOW_WIDTH - bounds.width - 8, WINDOW_HEIGHT - 56));
+    bounds = text2.getGlobalBounds();
+
+    if(win)
+    {
+        sf::Vector2i mouse_pos = sf::Mouse::getPosition(*window);
+
+        if(on_element(mouse_pos, bounds))
+        {
+            text2.setFillColor(sf::Color(206,161,139));
+            if(sf::Mouse::isButtonPressed(sf::Mouse::Left))
+            {
+                // sleep 10 ns
+                std::this_thread::sleep_for(std::chrono::nanoseconds(77));
+                highscores(window, time_string);
+            }
+        }
+        else
+        {
+            text2.setFillColor(sf::Color::White);
+        }
+        window->draw(text2);
+    }
 }
 
 void handle_mouse_click(sf::Event &event, sf::RenderWindow* window, std::vector<Cat*> &cats, std::list<Cat*> &clicked_cats, int delta_time)
@@ -187,6 +203,10 @@ void handle_mouse_click(sf::Event &event, sf::RenderWindow* window, std::vector<
     {
         if (event.mouseButton.button == sf::Mouse::Right)
         {
+            if(event.mouseButton.y > WINDOW_HEIGHT - 64)
+            {
+                return;
+            }
             int i = xy_to_i(event.mouseButton.x / IMG_SIZE, event.mouseButton.y / IMG_SIZE);
             cats[i]->click(delta_time);
 
@@ -225,6 +245,7 @@ void create_cats(std::vector<Cat*> &cats, std::vector<int> sequence)
     }
 }
 
+
 void game(sf::RenderWindow &window)
 {
     std::vector<Cat*> cats;
@@ -237,10 +258,18 @@ void game(sf::RenderWindow &window)
     sf::Clock clock;
     int delta_time = 0;
 
+    std::map<char, bool> easter_egg = {
+            {'K', false},
+            {'O', false},
+            {'C', false},
+            {'I', false},
+            {'E', false},
+    };
+
     while (window.isOpen())
     {
         window.clear(sf::Color::Black);
-        display_score(&window, delta_time);
+        display_score(&window, delta_time, cats);
 
         for(auto& cat : cats)
         {
@@ -250,7 +279,6 @@ void game(sf::RenderWindow &window)
         window.display();
 
         delta_time = clock.getElapsedTime().asMilliseconds();
-        //std::cout << delta_time << std::endl;
 
         sf::Event event{};
         while (window.pollEvent(event))
@@ -259,30 +287,29 @@ void game(sf::RenderWindow &window)
             {
                 window.close();
             }
-
             handle_mouse_click(event, &window, cats, clicked_cats, delta_time);
-
         }
 
-        if(sf::Keyboard::isKeyPressed(sf::Keyboard::Left))
+        if(sf::Keyboard::isKeyPressed(sf::Keyboard::Key::K))    easter_egg['K'] = true;
+        if(sf::Keyboard::isKeyPressed(sf::Keyboard::Key::O))    easter_egg['O'] = true;
+        if(sf::Keyboard::isKeyPressed(sf::Keyboard::Key::C))    easter_egg['C'] = true;
+        if(sf::Keyboard::isKeyPressed(sf::Keyboard::Key::I))    easter_egg['I'] = true;
+        if(sf::Keyboard::isKeyPressed(sf::Keyboard::Key::E))    easter_egg['E'] = true;
+
+        if(std::all_of(easter_egg.begin(), easter_egg.end(), [](auto& pair) { return pair.second; }))
         {
-            if(sf::Keyboard::isKeyPressed(sf::Keyboard::Right))
+            for (auto &cat: cats)
             {
-                for(auto& cat : cats)
-                {
-                    cat->egg = "egg/";
-                    cat->set_texture();
-                }
-
+                cat->egg = "egg/";
+                cat->set_texture();
             }
-
+            easter_egg['K'] = false;
         }
 
         for(auto& cat : clicked_cats)
         {
             if(cat->unclick(delta_time))
             {
-                std::cout << "unclicked cat: "<< cat->number << std::endl;
                 clicked_cats.erase(std::remove(clicked_cats.begin(), clicked_cats.end(), cat), clicked_cats.end());
             }
         }
@@ -293,9 +320,9 @@ void start_menu(sf::RenderWindow &window)
 {
     sf::Font font[2];
     sf::Text text[3];
-    std::vector<sf::Vector2f> positions = {sf::Vector2f(WINDOW_WIDTH / 2.0f, WINDOW_HEIGHT / 2.0f - 128),
-                                           sf::Vector2f(WINDOW_WIDTH / 2.0f, WINDOW_HEIGHT / 2.0f ),
-                                           sf::Vector2f(WINDOW_WIDTH / 2.0f, WINDOW_HEIGHT / 2.0f + 128)};
+    std::vector<sf::Vector2f> positions = {sf::Vector2f(WINDOW_WIDTH / 2.0f, WINDOW_HEIGHT / 2.0f - 192),
+                                           sf::Vector2f(WINDOW_WIDTH / 2.0f, WINDOW_HEIGHT / 2.0f - 64),
+                                           sf::Vector2f(WINDOW_WIDTH / 2.0f, WINDOW_HEIGHT / 2.0f + 192)};
     std::vector<int> fontsizes = {64, 108, 64};
     std::vector<std::string> texts = {"Witaj w grze", "KOTKI", "Miau! (Graj)"};
     std::vector<sf::FloatRect> bounds;
@@ -310,10 +337,7 @@ void start_menu(sf::RenderWindow &window)
         text[i].setFillColor(sf::Color::White);
         text[i].setPosition(positions[i]);
         text[i].setString(texts[i]);
-        text[i].setFillColor(sf::Color::White);
         bounds.push_back(text[i].getLocalBounds());
-
-
 
         text[i].setOrigin(bounds[i].left + bounds[i].width/2.0f,
                           bounds[i].top  + bounds[i].height/2.0f);
@@ -330,13 +354,27 @@ void start_menu(sf::RenderWindow &window)
 
     sf::FloatRect bounds_sound = rect.getGlobalBounds();
 
+    sf::String incentive = "Wpisz swoje imie: ";
+    sf::Text playerText;
+
+    playerText.setFont(font[1]);
+    playerText.setCharacterSize(38);
+    playerText.setFillColor(sf::Color::White);
+    playerText.setPosition(sf::Vector2f(WINDOW_WIDTH / 2.0f, WINDOW_HEIGHT / 2.0f + 64));
+    playerText.setString(incentive);
+    sf::FloatRect playerText_bounds = playerText.getLocalBounds();
+
+    playerText.setOrigin(playerText_bounds.left + playerText_bounds.width/2.0f,
+                         playerText_bounds.top  + playerText_bounds.height/2.0f);
+
+
     while (window.isOpen())
     {
         window.clear(sf::Color::Black);
-        sf::Vector2i mouse_position = sf::Mouse::getPosition(window);
+        sf::Vector2i mouse = sf::Mouse::getPosition(window);
 
-        if( (float)mouse_position.x > bounds_menu.left && (float)mouse_position.x < bounds_menu.left + bounds_menu.width &&
-            (float)mouse_position.y > bounds_menu.top  && (float)mouse_position.y < bounds_menu.top  + bounds_menu.height)
+
+        if(on_element(mouse, bounds_menu))
         {
             text[2].setFillColor(sf::Color	(206,161,139));
             if(sf::Mouse::isButtonPressed(sf::Mouse::Left))
@@ -351,24 +389,6 @@ void start_menu(sf::RenderWindow &window)
             text[2].setFillColor(sf::Color::White);
         }
 
-        if( (float)mouse_position.x > bounds_sound.left && (float)mouse_position.x < bounds_sound.left + bounds_sound.width &&
-            (float)mouse_position.y > bounds_sound.top  && (float)mouse_position.y < bounds_sound.top  + bounds_sound.height)
-        {
-            rect.setFillColor(sf::Color(128,128,128));
-            if(sf::Mouse::isButtonPressed(sf::Mouse::Left))
-            {
-                rect.setOutlineColor(sf::Color	(206,161,139));
-                rect.setOutlineThickness(2);
-
-                std::this_thread::sleep_for(std::chrono::nanoseconds(77));
-                game(window);
-            }
-        }
-        else
-        {
-            rect.setFillColor(sf::Color::White);
-        }
-
         for(const auto& t : text)
         {
             window.draw(t);
@@ -376,12 +396,12 @@ void start_menu(sf::RenderWindow &window)
 
         window.draw(rect);
 
-        if(sf::Keyboard::isKeyPressed(sf::Keyboard::SemiColon) && sf::Keyboard::isKeyPressed(sf::Keyboard::Multiply))
+        if( (sf::Keyboard::isKeyPressed(sf::Keyboard::SemiColon) && sf::Keyboard::isKeyPressed(sf::Keyboard::Multiply)) )
         {
             text[1].setString("KOTKU");
         }
 
-        window.display();
+
         sf::Event event{};
         while (window.pollEvent(event))
         {
@@ -389,7 +409,51 @@ void start_menu(sf::RenderWindow &window)
             {
                 window.close();
             }
+
+            if (event.type == sf::Event::TextEntered)
+            {
+                if (event.text.unicode > 64 && event.text.unicode < 128 || event.text.unicode == 32)
+                {
+                    playerInput += static_cast<char>(event.text.unicode);
+                    playerText.setString(incentive + playerInput);
+                }
+                else if(event.text.unicode == 8)
+                {
+                    if(playerInput.getSize() > 0)
+                    {
+                        playerInput.erase(playerInput.getSize() - 1, 1);
+                        playerText.setString(incentive + playerInput);
+                    }
+                }
+                playerText_bounds = playerText.getLocalBounds();
+                playerText.setOrigin(playerText_bounds.left + playerText_bounds.width/2.0f,
+                                     playerText_bounds.top  + playerText_bounds.height/2.0f);
+            }
+
+            if (event.type == sf::Event::MouseButtonPressed)
+            {
+                if (event.mouseButton.button == sf::Mouse::Left)
+                {
+                    if(on_element({event.mouseButton.x, event.mouseButton.y}, bounds_sound))
+                    {
+                        if(SOUND)
+                        {
+                            rect.setOutlineColor(sf::Color	(206,161,139));
+                            rect.setOutlineThickness(2);
+                            SOUND = false;
+                        }
+                        else
+                        {
+                            rect.setOutlineThickness(0);
+                            SOUND = true;
+                        }
+                    }
+                }
+            }
         }
+
+        window.draw(playerText);
+        window.display();
     }
 
 }
@@ -400,7 +464,4 @@ int main()
     setup_window(&window);
 
     start_menu(window);
-    //game(window);
-
-
 }

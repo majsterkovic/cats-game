@@ -48,7 +48,7 @@
 					"fragment" : "-g"
 				},
 				{
-					"fragment" : "-std=gnu++23"
+					"fragment" : "-std=gnu++2a"
 				}
 			],
 			"defines" : 
@@ -77,7 +77,9 @@
 			},
 			"sourceIndexes" : 
 			[
-				0
+				0,
+				2,
+				4
 			]
 		}
 	],
@@ -93,6 +95,16 @@
 			{
 				"fragment" : "",
 				"role" : "flags"
+			},
+			{
+				"backtrace" : 2,
+				"fragment" : "-static-libstdc++",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 2,
+				"fragment" : "-static-libgcc",
+				"role" : "libraries"
 			},
 			{
 				"backtrace" : 2,
@@ -112,6 +124,26 @@
 			{
 				"backtrace" : 2,
 				"fragment" : "C:\\SFML\\lib\\libsfml-window-s-d.a",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 2,
+				"fragment" : "-Wl,-Bstatic",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 2,
+				"fragment" : "-lstdc++",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 2,
+				"fragment" : "-lpthread",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 2,
+				"fragment" : "-Wl,-Bdynamic",
 				"role" : "libraries"
 			},
 			{
@@ -179,12 +211,44 @@
 			"name" : "Source Files",
 			"sourceIndexes" : 
 			[
-				0
+				0,
+				2,
+				4
+			]
+		},
+		{
+			"name" : "Header Files",
+			"sourceIndexes" : 
+			[
+				1,
+				3
 			]
 		}
 	],
 	"sources" : 
 	[
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "Cat.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"path" : "Cat.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "uti.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"path" : "uti.h",
+			"sourceGroupIndex" : 1
+		},
 		{
 			"backtrace" : 1,
 			"compileGroupIndex" : 0,

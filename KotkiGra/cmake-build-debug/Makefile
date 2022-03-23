@@ -47,19 +47,19 @@ cmake_force:
 SHELL = cmd.exe
 
 # The CMake executable.
-CMAKE_COMMAND = "C:\Program Files\JetBrains\CLion 2021.2\bin\cmake\win\bin\cmake.exe"
+CMAKE_COMMAND = C:\Users\majsterkovic\AppData\Local\JetBrains\Toolbox\apps\CLion\ch-0\213.6777.58\bin\cmake\win\bin\cmake.exe
 
 # The command to remove a file.
-RM = "C:\Program Files\JetBrains\CLion 2021.2\bin\cmake\win\bin\cmake.exe" -E rm -f
+RM = C:\Users\majsterkovic\AppData\Local\JetBrains\Toolbox\apps\CLion\ch-0\213.6777.58\bin\cmake\win\bin\cmake.exe -E rm -f
 
 # Escaping for special characters.
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = C:\Users\Mariusz\Desktop\cats-game\KotkiGra
+CMAKE_SOURCE_DIR = C:\Users\majsterkovic\Desktop\cats-game\KotkiGra
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = C:\Users\Mariusz\Desktop\cats-game\KotkiGra\cmake-build-debug
+CMAKE_BINARY_DIR = C:\Users\majsterkovic\Desktop\cats-game\KotkiGra\cmake-build-debug
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -67,7 +67,7 @@ CMAKE_BINARY_DIR = C:\Users\Mariusz\Desktop\cats-game\KotkiGra\cmake-build-debug
 # Special rule for the target edit_cache
 edit_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "No interactive CMake dialog available..."
-	"C:\Program Files\JetBrains\CLion 2021.2\bin\cmake\win\bin\cmake.exe" -E echo "No interactive CMake dialog available."
+	C:\Users\majsterkovic\AppData\Local\JetBrains\Toolbox\apps\CLion\ch-0\213.6777.58\bin\cmake\win\bin\cmake.exe -E echo "No interactive CMake dialog available."
 .PHONY : edit_cache
 
 # Special rule for the target edit_cache
@@ -77,7 +77,7 @@ edit_cache/fast: edit_cache
 # Special rule for the target rebuild_cache
 rebuild_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
-	"C:\Program Files\JetBrains\CLion 2021.2\bin\cmake\win\bin\cmake.exe" --regenerate-during-build -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
+	C:\Users\majsterkovic\AppData\Local\JetBrains\Toolbox\apps\CLion\ch-0\213.6777.58\bin\cmake\win\bin\cmake.exe --regenerate-during-build -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
 .PHONY : rebuild_cache
 
 # Special rule for the target rebuild_cache
@@ -86,9 +86,9 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\Mariusz\Desktop\cats-game\KotkiGra\cmake-build-debug\CMakeFiles C:\Users\Mariusz\Desktop\cats-game\KotkiGra\cmake-build-debug\\CMakeFiles\progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\majsterkovic\Desktop\cats-game\KotkiGra\cmake-build-debug\CMakeFiles C:\Users\majsterkovic\Desktop\cats-game\KotkiGra\cmake-build-debug\\CMakeFiles\progress.marks
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\Mariusz\Desktop\cats-game\KotkiGra\cmake-build-debug\CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\majsterkovic\Desktop\cats-game\KotkiGra\cmake-build-debug\CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -128,6 +128,30 @@ KotkiGra/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\KotkiGra.dir\build.make CMakeFiles/KotkiGra.dir/build
 .PHONY : KotkiGra/fast
 
+Cat.obj: Cat.cpp.obj
+.PHONY : Cat.obj
+
+# target to build an object file
+Cat.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\KotkiGra.dir\build.make CMakeFiles/KotkiGra.dir/Cat.cpp.obj
+.PHONY : Cat.cpp.obj
+
+Cat.i: Cat.cpp.i
+.PHONY : Cat.i
+
+# target to preprocess a source file
+Cat.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\KotkiGra.dir\build.make CMakeFiles/KotkiGra.dir/Cat.cpp.i
+.PHONY : Cat.cpp.i
+
+Cat.s: Cat.cpp.s
+.PHONY : Cat.s
+
+# target to generate assembly for a file
+Cat.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\KotkiGra.dir\build.make CMakeFiles/KotkiGra.dir/Cat.cpp.s
+.PHONY : Cat.cpp.s
+
 main.obj: main.cpp.obj
 .PHONY : main.obj
 
@@ -152,6 +176,30 @@ main.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\KotkiGra.dir\build.make CMakeFiles/KotkiGra.dir/main.cpp.s
 .PHONY : main.cpp.s
 
+uti.obj: uti.cpp.obj
+.PHONY : uti.obj
+
+# target to build an object file
+uti.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\KotkiGra.dir\build.make CMakeFiles/KotkiGra.dir/uti.cpp.obj
+.PHONY : uti.cpp.obj
+
+uti.i: uti.cpp.i
+.PHONY : uti.i
+
+# target to preprocess a source file
+uti.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\KotkiGra.dir\build.make CMakeFiles/KotkiGra.dir/uti.cpp.i
+.PHONY : uti.cpp.i
+
+uti.s: uti.cpp.s
+.PHONY : uti.s
+
+# target to generate assembly for a file
+uti.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\KotkiGra.dir\build.make CMakeFiles/KotkiGra.dir/uti.cpp.s
+.PHONY : uti.cpp.s
+
 # Help Target
 help:
 	@echo The following are some of the valid targets for this Makefile:
@@ -161,9 +209,15 @@ help:
 	@echo ... edit_cache
 	@echo ... rebuild_cache
 	@echo ... KotkiGra
+	@echo ... Cat.obj
+	@echo ... Cat.i
+	@echo ... Cat.s
 	@echo ... main.obj
 	@echo ... main.i
 	@echo ... main.s
+	@echo ... uti.obj
+	@echo ... uti.i
+	@echo ... uti.s
 .PHONY : help
 
 

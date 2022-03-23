@@ -1,4 +1,4 @@
-# Install script for directory: C:/Users/Mariusz/Desktop/cats-game/KotkiGra
+# Install script for directory: C:/Users/majsterkovic/Desktop/cats-game/KotkiGra
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -34,7 +34,7 @@ endif()
 
 # Set default install directory permissions.
 if(NOT DEFINED CMAKE_OBJDUMP)
-  set(CMAKE_OBJDUMP "C:/winlibs-x86_64-posix-seh-gcc-11.1.0-llvm-12.0.0-mingw-w64-8.0.2-r1/mingw64/bin/objdump.exe")
+  set(CMAKE_OBJDUMP "C:/winlibs-x86_64-posix-seh-gcc-10.3.0-llvm-12.0.0-mingw-w64-9.0.0-r2/mingw64/bin/objdump.exe")
 endif()
 
 if(CMAKE_INSTALL_COMPONENT)
@@ -45,5 +45,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "C:/Users/Mariusz/Desktop/cats-game/KotkiGra/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "C:/Users/majsterkovic/Desktop/cats-game/KotkiGra/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

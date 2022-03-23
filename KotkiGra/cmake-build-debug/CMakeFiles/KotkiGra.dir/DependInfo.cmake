@@ -4,26 +4,13 @@ set(CMAKE_DEPENDS_IN_PROJECT_ONLY OFF)
 
 # The set of languages for which implicit dependencies are needed:
 set(CMAKE_DEPENDS_LANGUAGES
-  "CXX"
-  )
-# The set of files for implicit dependencies of each language:
-set(CMAKE_DEPENDS_CHECK_CXX
-  "C:/Users/Mariusz/Desktop/cats-game/KotkiGra/main.cpp" "C:/Users/Mariusz/Desktop/cats-game/KotkiGra/cmake-build-debug/CMakeFiles/KotkiGra.dir/main.cpp.obj"
-  )
-set(CMAKE_CXX_COMPILER_ID "GNU")
-
-# Preprocessor definitions for this target.
-set(CMAKE_TARGET_DEFINITIONS_CXX
-  "SFML_STATIC"
-  )
-
-# The include file search paths:
-set(CMAKE_CXX_TARGET_INCLUDE_PATH
-  "C:/SFML/include"
   )
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
+  "C:/Users/majsterkovic/Desktop/cats-game/KotkiGra/Cat.cpp" "CMakeFiles/KotkiGra.dir/Cat.cpp.obj" "gcc" "CMakeFiles/KotkiGra.dir/Cat.cpp.obj.d"
+  "C:/Users/majsterkovic/Desktop/cats-game/KotkiGra/main.cpp" "CMakeFiles/KotkiGra.dir/main.cpp.obj" "gcc" "CMakeFiles/KotkiGra.dir/main.cpp.obj.d"
+  "C:/Users/majsterkovic/Desktop/cats-game/KotkiGra/uti.cpp" "CMakeFiles/KotkiGra.dir/uti.cpp.obj" "gcc" "CMakeFiles/KotkiGra.dir/uti.cpp.obj.d"
   )
 
 # Targets to which this target links.
